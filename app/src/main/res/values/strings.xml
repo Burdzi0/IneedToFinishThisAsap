@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">IneedToFinishThisAsap</string>
+    <string name="enter_id_of_a_link_to_show">Enter id of a link to show</string>
 </resources>

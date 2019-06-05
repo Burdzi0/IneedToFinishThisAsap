@@ -1,19 +1,20 @@
 package tech.burdzi0.ineedtofinishthisasap.model.api
 
-import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import tech.burdzi0.ineedtofinishthisasap.executor.Executor.execute
 import tech.burdzi0.ineedtofinishthisasap.model.Link
+import java.util.concurrent.Callable
 
-interface LinkService {
+class LinkService {
 
-    @GET("/api/link/")
-    fun getAllLinks(): Call<List<Link>>
+    private val linkService = LinkServiceProvider.get()
 
-    @GET("/api/link/{id}")
-    fun getLinkById(@Path("id") id:Int): Call<Link>
-
-    @POST("/api/link")
-    fun postLink(link:Link): Call<Link>
+    fun getLinkById(id:Long): Link? {
+        val linkCall = linkService.getLinkById(id)
+        val link = execute(
+            Callable<Link> {
+                linkCall.execute().body()
+            }
+        )
+        return link
+    }
 }

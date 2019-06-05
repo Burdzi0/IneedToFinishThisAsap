@@ -2,12 +2,12 @@ package tech.burdzi0.ineedtofinishthisasap.model.api
 
 object LinkServiceProvider {
 
-    private val instance: LinkService by lazy {
+    private val instance: LinkRetrofitService by lazy {
         val retrofit = RetrofitProvider.get()
-        retrofit.create(LinkService::class.java)
+        retrofit.create(LinkRetrofitService::class.java)
     }
 
-    fun get():LinkService {
+    fun get():LinkRetrofitService {
         return instance
     }
 }

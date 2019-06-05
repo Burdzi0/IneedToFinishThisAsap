@@ -7,11 +7,11 @@ import tech.burdzi0.ineedtofinishthisasap.interceptor.CustomInterceptor
 
 object RetrofitProvider {
 
-    private val REST_API_WEBSITE = "http://bootshorten.herokuapp.com/"
+    private const val BASE_URL = "http://bootshorten.herokuapp.com/"
 
     private val instance: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl(REST_API_WEBSITE)
+            .baseUrl(BASE_URL)
             .client(createCustomInterceptor())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
