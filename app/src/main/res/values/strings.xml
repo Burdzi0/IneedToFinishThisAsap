@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">IneedToFinishThisAsap</string>
     <string name="enter_id_of_a_link_to_show">Enter id of a link to show</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">title</string>
+    <string name="description">description</string>
 </resources>
