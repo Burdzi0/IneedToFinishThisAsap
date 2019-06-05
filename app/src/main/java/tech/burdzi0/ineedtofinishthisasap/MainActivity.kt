@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.android.ext.android.startKoin
+import tech.burdzi0.ineedtofinishthisasap.di.applicationModule
 import tech.burdzi0.ineedtofinishthisasap.presenter.MainActivityPresenter
 import tech.burdzi0.ineedtofinishthisasap.view.MainActivityView
 
@@ -15,6 +17,7 @@ class MainActivity : AppCompatActivity(), MainActivityView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        startKoin(this, listOf(applicationModule))
 
         linkId.addTextChangedListener(
             textWatcher()

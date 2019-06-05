@@ -1,16 +1,23 @@
 package tech.burdzi0.ineedtofinishthisasap.presenter
 
+import org.koin.standalone.KoinComponent
+import org.koin.standalone.inject
 import tech.burdzi0.ineedtofinishthisasap.model.api.LinkService
-import tech.burdzi0.ineedtofinishthisasap.view.LinkViewTransformer.transform
+import tech.burdzi0.ineedtofinishthisasap.view.LinkViewTransformer
 import tech.burdzi0.ineedtofinishthisasap.view.MainActivityView
 
-class MainActivityPresenter(private val view:MainActivityView) {
+class MainActivityPresenter(private val view:MainActivityView): KoinComponent {
 
-    private val linkService = LinkService()
+    // This is bad
+    // but DI within Activities and NonActivities
+    // is a bit difficult at the moment
+
+    private val linkService:LinkService by inject()
+    private val transformer: LinkViewTransformer by inject()
 
     fun getLinkById(id: Long) {
         val link = linkService.getLinkById(id)
-        view.showLink(transform(link))
+        view.showLink(transformer.transform(link))
     }
 
 }
