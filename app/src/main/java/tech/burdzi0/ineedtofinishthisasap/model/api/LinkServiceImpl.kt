@@ -16,4 +16,13 @@ class LinkServiceImpl : LinkService{
             }
         )
     }
+
+    override fun getAllLinks(): List<Link>? {
+        val linkCall = linkService.getAllLinks()
+        return execute(
+            Callable<List<Link>> {
+                linkCall.execute().body()
+            }
+        )
+    }
 }
