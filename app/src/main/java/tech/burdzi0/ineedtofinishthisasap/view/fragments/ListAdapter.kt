@@ -7,14 +7,14 @@ import tech.burdzi0.ineedtofinishthisasap.R
 import tech.burdzi0.ineedtofinishthisasap.model.LinkFragmentItem
 
 class ListAdapter(private val list: List<LinkFragmentItem>)
-    : RecyclerView.Adapter<MovieViewHolder>() {
+    : RecyclerView.Adapter<LinkFragmentItemViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LinkFragmentItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return MovieViewHolder(inflater, parent)
+        return LinkFragmentItemViewHolder(inflater, parent)
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: LinkFragmentItemViewHolder, position: Int) {
         val link: LinkFragmentItem = list[position]
         holder.bind(link)
     }
@@ -23,7 +23,7 @@ class ListAdapter(private val list: List<LinkFragmentItem>)
 
 }
 
-class MovieViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
+class LinkFragmentItemViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item, parent, false)) {
     private var url: TextView? = null
     private var expiration: TextView? = null

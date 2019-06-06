@@ -5,22 +5,32 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.StartActivity">
+        tools:context=".StartActivity">
 
     <Button
-            android:text="Single link by id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/singleLink" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="50dp" app:layout_constraintStart_toStartOf="parent"
+            android:text="Show single link by id"
+            android:layout_width="244dp"
+            android:layout_height="57dp"
+            android:id="@+id/singleLink"
+            android:layout_marginTop="28dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="32dp"/>
+            android:layout_marginEnd="32dp" app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" android:textColor="@color/colorAccent"/>
     <Button
-            android:text="All links"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:text="Show all links"
+            android:layout_width="249dp"
+            android:layout_height="49dp"
             android:id="@+id/allLinks" android:layout_marginTop="50dp"
             app:layout_constraintTop_toBottomOf="@+id/singleLink" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="32dp"/>
+            android:layout_marginEnd="32dp" android:textColor="@color/colorAccent"/>
+    <TextView
+            android:text="Hello to bootshorten android client!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="50dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp" android:textSize="24sp"
+            android:textStyle="bold|italic" android:textAlignment="center"/>
 </android.support.constraint.ConstraintLayout>
