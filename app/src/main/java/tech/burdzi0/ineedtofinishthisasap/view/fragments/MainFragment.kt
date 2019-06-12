@@ -18,15 +18,6 @@ class MainFragment : Fragment() {
 
     private val linksFromApi = linkService.getAllLinks()
 
-    private val links = linksFromApi?.map{link -> LinkFragmentItem(link.url, link.expiration)} ?: emptyList()
-
-    /*
-        listOf(
-        LinkFragmentItem("www.google.pl", "2019-06-05T23:33:34+0000"),
-        LinkFragmentItem("www.wp.pl", "2019-06-05T23:33:34+0000"),
-        LinkFragmentItem("www.onet.pl", "2019-06-05T23:33:34+0000")
-    )
-    */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +32,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         list_recycler_view.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = ListAdapter(links)
+            adapter = ListAdapter(linksFromApi.toMutableList(), context)
         }
     }
 

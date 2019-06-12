@@ -4,7 +4,7 @@ import tech.burdzi0.ineedtofinishthisasap.executor.Executor.execute
 import tech.burdzi0.ineedtofinishthisasap.model.Link
 import java.util.concurrent.Callable
 
-class LinkServiceImpl : LinkService{
+class LinkServiceImpl: LinkService {
 
     private val linkService = LinkRetrofitServiceProvider.get()
 
@@ -17,12 +17,19 @@ class LinkServiceImpl : LinkService{
         )
     }
 
-    override fun getAllLinks(): List<Link>? {
+    override fun getAllLinks(): List<Link> {
         val linkCall = linkService.getAllLinks()
         return execute(
             Callable<List<Link>> {
                 linkCall.execute().body()
             }
-        )
+        ) ?: emptyList()
+    }
+
+    override fun deleteLink(id: Long): Callable<Link> {
+        val linkCall = linkService.delete(id)
+        return Callable<Link> {
+            linkCall.execute().body()
+        }
     }
 }

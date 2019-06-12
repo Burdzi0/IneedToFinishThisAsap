@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import tech.burdzi0.ineedtofinishthisasap.interceptor.CustomInterceptor
+import java.util.concurrent.TimeUnit
 
 object RetrofitProvider {
 
@@ -22,6 +23,7 @@ object RetrofitProvider {
             .addInterceptor(CustomInterceptor())
             .addNetworkInterceptor(CustomInterceptor())
             .retryOnConnectionFailure(true)
+            .callTimeout(10, TimeUnit.SECONDS)
             .build()
     }
 

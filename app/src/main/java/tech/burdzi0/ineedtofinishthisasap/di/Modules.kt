@@ -4,8 +4,10 @@ import android.content.Context
 import android.content.SharedPreferences
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module.module
+import tech.burdzi0.ineedtofinishthisasap.MainActivity
 import tech.burdzi0.ineedtofinishthisasap.model.api.LinkService
 import tech.burdzi0.ineedtofinishthisasap.model.api.LinkServiceImpl
+import tech.burdzi0.ineedtofinishthisasap.presenter.MainActivityPresenter
 import tech.burdzi0.ineedtofinishthisasap.view.LinkViewTransformer
 import tech.burdzi0.ineedtofinishthisasap.view.LinkViewTransformerImpl
 

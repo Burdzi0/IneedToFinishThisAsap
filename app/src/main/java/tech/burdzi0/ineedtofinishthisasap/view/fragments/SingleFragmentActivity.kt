@@ -31,4 +31,6 @@ abstract class SingleFragmentActivity : AppCompatActivity() {
                 .commit()
         }
     }
+
+
 }

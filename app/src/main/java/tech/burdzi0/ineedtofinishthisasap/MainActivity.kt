@@ -5,19 +5,18 @@ import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import kotlinx.android.synthetic.main.activity_main.*
-import org.koin.android.ext.android.startKoin
-import tech.burdzi0.ineedtofinishthisasap.di.applicationModule
 import tech.burdzi0.ineedtofinishthisasap.presenter.MainActivityPresenter
 import tech.burdzi0.ineedtofinishthisasap.view.MainActivityView
 
 class MainActivity : AppCompatActivity(), MainActivityView {
 
-    private val presenter = MainActivityPresenter(this)
+    private val presenter: MainActivityPresenter by lazy {
+        MainActivityPresenter(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        startKoin(this, listOf(applicationModule))
 
         linkId.addTextChangedListener(
             textWatcher()
@@ -30,6 +29,10 @@ class MainActivity : AppCompatActivity(), MainActivityView {
             override fun afterTextChanged(s: Editable) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                parseToLongIfPossible(s)
+            }
+
+            private fun parseToLongIfPossible(s: CharSequence?) {
                 if (!s.toString().isEmpty() && !s.toString().isBlank()) {
                     val id = s.toString().toLong()
                     presenter.getLinkById(id)
