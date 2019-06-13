@@ -26,10 +26,10 @@ class LinkServiceImpl: LinkService {
         ) ?: emptyList()
     }
 
-    override fun deleteLink(id: Long): Callable<Link> {
+    override fun deleteLink(id: Long) {
         val linkCall = linkService.delete(id)
-        return Callable<Link> {
-            linkCall.execute().body()
-        }
+        execute(Runnable {
+            linkCall.execute()
+        })
     }
 }

@@ -15,9 +15,7 @@ import tech.burdzi0.ineedtofinishthisasap.model.api.LinkService
 class MainFragment : Fragment() {
 
     private val linkService: LinkService by inject()
-
     private val linksFromApi = linkService.getAllLinks()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

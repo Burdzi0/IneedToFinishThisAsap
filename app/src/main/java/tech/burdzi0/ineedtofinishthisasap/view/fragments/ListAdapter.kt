@@ -10,7 +10,7 @@ import tech.burdzi0.ineedtofinishthisasap.model.LinkFragmentItem
 import tech.burdzi0.ineedtofinishthisasap.view.dialog.InfoAlertDialog
 
 class ListAdapter(
-    private val list: MutableList<Link>,
+    private var list: MutableList<Link>,
     private val context: Context
 ) : RecyclerView.Adapter<LinkFragmentItemViewHolder>() {
 
@@ -28,13 +28,14 @@ class ListAdapter(
 
     override fun getItemCount(): Int = list.size
 
-    fun removeItem(id:Int) {
-        list.removeAt(id)
-    }
-
     fun get(position: Int):Link? {
         return list[position]
     }
+
+    fun changeList(list: MutableList<Link>) {
+        this.list = list
+    }
+
 }
 
 class LinkFragmentItemViewHolder(inflater: LayoutInflater, parent: ViewGroup) :

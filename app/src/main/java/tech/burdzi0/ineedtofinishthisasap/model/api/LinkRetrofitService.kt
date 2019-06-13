@@ -17,6 +17,6 @@ interface LinkRetrofitService {
     fun getLinkById(@Path("id") id: Long): Call<Link>
 
     @DELETE("/api/link/{id}")
-    fun delete(@Path("id") id: Long): Call<Link>
+    fun delete(@Path("id") id: Long): Call<Void>
 
 }
